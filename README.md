@@ -19,7 +19,7 @@ To get a local copy up and running, follow these simple steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/networking-group-mixer.git
+   git clone https://github.com/halimbahae/networking-group-mixer.git
    ```
    
 2. **Open the HTML file in your browser:**
@@ -37,4 +37,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-[Bahae Eddine HALIM]([https://www.linkedin.com/in/yourprofile](https://www.linkedin.com/in/halimbahae/))  
+[Bahae Eddine HALIM](https://www.linkedin.com/in/halimbahae/)
