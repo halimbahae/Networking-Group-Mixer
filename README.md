@@ -12,7 +12,6 @@ You can check out the live demo of the Networking Group Mixer application [here]
 - [Usage](#usage)
 - [New Features](#new-features)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -81,10 +80,6 @@ We welcome contributions to the Networking Group Mixer! If you have suggestions 
    ```
 5. Open a pull request.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
-
 **Created with ❤️ by [Bahae Eddine Halim](https://linkedin.com/in/halimbahae)**
