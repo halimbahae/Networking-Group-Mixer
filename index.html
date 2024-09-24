@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking Group Mixer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg text-center max-w-5xl">
+        <!-- Updated flex container for header and button -->
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-3xl font-bold text-blue-600">Networking Group Mixer</h1>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg" id="create-btn">
+                Create Groups
+            </button>
+        </div>
+
+        <!-- Container for Groups -->
+        <div id="groups-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <!-- Shuffle Button and Legend -->
+        <div class="flex items-center justify-center space-x-4 mt-6">
+            <!-- Shuffle Button -->
+            <button id="shuffle-btn" class="hidden bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">
+                Shuffle Groups
+            </button>
+            
+            <!-- Legend -->
+            <div class="flex items-center space-x-2">
+                <span class="h-4 w-4 bg-blue-500 rounded-full inline-block"></span>
+                <span class="text-gray-700">Professional</span>
+                <span class="h-4 w-4 bg-green-500 rounded-full inline-block ml-4"></span>
+                <span class="text-gray-700">Student</span>
+            </div>
+
+
+        </div>
+   
+
+
+    <!-- Footer -->
+    <footer class="mt-6 text-center text-gray-600">
+        <p>Code with love ❤️ by <a href="https://linkedin.com/in/halimbahae" class="text-blue-500 hover:underline">Bahae Eddine Halim</a></p>
+    </footer>
+
+</div>
+
+    <script>
+        const professionals = [
+    "Yassine Bouhaddou", "Sara El Hamidi", "Khalid Zerouali", "Nadia Benali", "Ahmed Tazi",
+    "Soukaina Ait Slimane", "Mouad Lakhal", "Hicham El Ghali", "Zahra El Ouardi", "Samir Ouhabi",
+    "Meryem Moutaa", "Hassan Cherif", "Naima El Yassir", "Reda Azzouz", "Karim Baali",
+    "Mouna Benhassine", "Amina Bouzid", "Youssef Fassi"
+];
+
+    
+const students = [
+"Siham El Idrissi", "Omar Gharbi", "Zineb Lahlou", "Hassan Bouzidi", "Yasmin Labidi",
+"Amine Bakkali", "Fatima Zahra Chrif", "Ali Rachidi", "Kawtar Taarji", "Khalil Akhssas",
+"Nour El Gharbi", "Zouhair Khali"
+];
+
+    
+        const groupSize = 5;
+        const maxStudentsPerGroup = 2;
+    
+        // Shuffle function using Fisher-Yates algorithm
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+    
+        // Create groups with the condition of maximum 2 students per group
+        function createGroups() {
+            shuffleArray(professionals);
+            shuffleArray(students);
+    
+            const groups = [];
+            let professionalIndex = 0;
+            let studentIndex = 0;
+    
+            // Fill groups with max 2 students and the rest with professionals
+            while (professionalIndex < professionals.length || studentIndex < students.length) {
+                const group = [];
+    
+                // Add up to 2 students to the group
+                for (let i = 0; i < maxStudentsPerGroup && studentIndex < students.length; i++) {
+                    group.push(students[studentIndex++]);
+                }
+    
+                // Fill the rest of the group with professionals
+                while (group.length < groupSize && professionalIndex < professionals.length) {
+                    group.push(professionals[professionalIndex++]);
+                }
+    
+                // Add group to the list
+                groups.push(group);
+            }
+    
+            displayGroups(groups);
+        }
+    
+        // Display groups in the HTML
+        function displayGroups(groups) {
+            const container = document.getElementById("groups-container");
+            container.innerHTML = ""; // Clear previous groups
+    
+            groups.forEach((group, index) => {
+                const groupDiv = document.createElement('div');
+                groupDiv.className = "bg-gray-200 p-4 rounded-lg shadow-md";
+                // Change color to dark red
+                groupDiv.innerHTML = `<h3 class="text-xl font-semibold text-red-700 mb-4">Group ${index + 1}</h3>`; // Updated color
+    
+                group.forEach(member => {
+                    const memberColor = professionals.includes(member) ? 'text-blue-500' : 'text-green-500';
+                    groupDiv.innerHTML += `<p class="mb-2 ${memberColor}">${member}</p>`;
+                });
+    
+                container.appendChild(groupDiv);
+            });
+    
+            // Show the shuffle button once groups are created
+            document.getElementById('shuffle-btn').classList.remove('hidden');
+        }
+    
+        // Add event listeners for buttons
+        document.getElementById('create-btn').addEventListener('click', createGroups);
+        document.getElementById('shuffle-btn').addEventListener('click', createGroups);
+    </script>
+    
+</body>
+</html>
