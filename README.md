@@ -88,4 +88,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 **Created with ❤️ by [Bahae Eddine Halim](https://linkedin.com/in/halimbahae)**
-```
