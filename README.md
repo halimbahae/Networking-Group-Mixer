@@ -1,3 +1,15 @@
+
+# Networking Group Mixer
+
+## Preview Video
+![Networking Group Mixer Preview](Networking-Group-Mixer.mp4)
+
+## Demo
+You can check out the live demo of the Networking Group Mixer application [here](https://halimbahae.github.io/Networking-Group-Mixer/).
+
+
+
+
 Welcome to the **Networking Group Mixer**! This project aims to facilitate networking opportunities by creating groups of professionals and students. It allows users to shuffle and create groups based on a predefined set of members, ensuring a mix of experiences and backgrounds.
 
 ## Features
